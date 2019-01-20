@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
 
     public int health = 3;
 
+    public GameObject effect;
+
     private void Update()
     {
 
@@ -27,10 +29,12 @@ public class Player : MonoBehaviour
 
       if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y < maxHeight)
         {
+            Instantiate(effect, transform.position, Quaternion.identity);
             targetPos = new Vector2(transform.position.x, transform.position.y + Yincrement);
            
         } else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > minHeight)
         {
+            Instantiate(effect, transform.position, Quaternion.identity);
             targetPos = new Vector2(transform.position.x, transform.position.y - Yincrement);
             
         }
